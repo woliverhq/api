@@ -52,6 +52,7 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 | `token` | `string` | **Obrigatório**. Sua Woliver API token |
 | `coordinates` | `string` | Coordenadas para buscar imóveis próximos |
 | `price` | `string` | Preço para aluguel do imóvel |
+| `taxes_included` | `boolean` | Considerar valores de IPTU e condomínio no valor de aluguel |
 | `city` | `string` | Cidades para busca de imóveis |
 | `neighborhoods` | `string` | Bairros para busca de imóveis |
 | `bathrooms` | `number` | Número de banheiros do imóvel |
