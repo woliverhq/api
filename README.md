@@ -2,9 +2,9 @@
 
 <!-- TOC depthFrom:1 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-  - [Introdução](#intro)
-  - [Autenticação](#authentication)
-  - [Recomendações](#recommendations)
+  - [Introdução](#introdução)
+  - [Autenticação](#autenticação)
+  - [Recomendações](#recomendações)
 
 <!-- /TOC -->
 
@@ -14,7 +14,7 @@ A Woliver é uma empresa dedicada a democratização ao acesso a tecnologias com
 
 Essa documentação possui o manual da API Woliver que pode ser utilizada por desenvolvedores para integrações com nossas tecnologias.
 
-Todas as integrações são realizadas com uma imobiliária e a BASE URL da API segue o padrão:
+Todas as integrações são realizadas com uma imobiliária e a **BASE URL** da API segue o padrão:
 
 ```http
 example.api.woliver.net
@@ -23,7 +23,7 @@ example.api.woliver.net
 Referente a imobiliária de URL: [example.woliver.net](https://example.woliver.net). A propósito, para questões de documentação usaremos a imobiliária **example** nesse manual.
 
 
-Esperamos que você goste da API Woliver, mas não hesite em criar uma issue se houver algo faltando.
+Esperamos que você goste da API Woliver, mas não hesite em [criar uma issue](https://github.com/woliverhq/api/issues/new) se houver algo faltando.
 
 ## Autenticação
 
