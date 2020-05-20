@@ -5,6 +5,7 @@
   - [Introdução](#introdução)
   - [Autenticação](#autenticação)
   - [Recomendações](#recomendações)
+  - [Leads](#leads)
 
 <!-- /TOC -->
 
@@ -94,5 +95,57 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 ```javascript
 {
   "url": "https://example.woliver.net/recomendacoes/k28Jv5/"
+}
+```
+
+## Leads
+
+### Criar lead
+
+Esse endpoint é utilizado para a criação de novas leads. O usuário deverá prover os parâmetros listados a seguir.
+
+```http
+POST /api/v1/lead/
+```
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `token` | `string` | Sua Woliver API token |
+| `full_name` | `string` |**Obrigatório.** Nome completo do lead |
+| `cpf` | `string` | CPF do lead |
+| `email` | `string` |**Obrigatório.** E-mail do lead |
+| `phone_number` | `string` | Número de telefone do lead com DDD |
+| `listing` | `number` | `external_id` do imóvel de interesse do lead |
+| `leads_source` | `string` | Slug name da `LeadsSource` |
+| `comments` | `string` | Comentários do lead a respeito do imóvel |
+
+#### Request
+
+```javascript
+{
+  "full_name": "Lead Woliver",
+  "cpf": "11111111111",
+  "email": "dev@woliver.com",
+  "phone_number": "(99)99999999",
+  "listing": 1532,
+  "leads_source": "leads-source-slug",
+  "comments": "Quero agendar uma visita!"
+}
+```
+
+#### Response - 201 (application/json)
+
+```javascript
+{
+  "id": 9,
+  "user": {
+      "id": 7,
+      "phone_number": "(99)99999999",
+      "full_name": "Lead Woliver",
+      "email": "dev@woliver.com"
+      },
+  "listing": "Listing 1532 (1532) Neighborhood",
+  "staff1": null,
+  "leads_source": "leads-source-slug"
 }
 ```
