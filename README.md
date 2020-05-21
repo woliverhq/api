@@ -110,12 +110,12 @@ POST /api/v1/lead/?token=12345678901234567890123456789012
 
 | Parâmetro | Tipo | Descrição |
 | :--- | :--- | :--- |
-| `token` | `string` | Sua Woliver API token |
+| `token` | `string` |**Obrigatório.** Sua Woliver API token |
 | `full_name` | `string` |**Obrigatório.** Nome completo do lead |
 | `cpf` | `string` | CPF do lead |
 | `email` | `string` |**Obrigatório.** E-mail do lead |
 | `phone_number` | `string` | Número de telefone do lead com DDD |
-| `listing` | `number` | `external_id` do imóvel de interesse do lead |
+| `listing` | `number` |**Obrigatório.** Código do imóvel de acordo com o XML da imobiliária |
 | `leads_source` | `string` | Slug name da `LeadsSource` |
 | `comments` | `string` | Comentários do lead a respeito do imóvel |
 
