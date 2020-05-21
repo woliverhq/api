@@ -105,7 +105,7 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 Esse endpoint é utilizado para a criação de novas leads. O usuário deverá prover os parâmetros listados a seguir.
 
 ```http
-POST /api/v1/lead/
+POST /api/v1/lead/?token=12345678901234567890123456789012
 ```
 
 | Parâmetro | Tipo | Descrição |
