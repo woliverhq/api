@@ -127,6 +127,7 @@ POST /api/v1/listings/{listing_id}/recommend/?token=1234567890123456789012345678
 #### Response - 201 (application/json)
 
 ```javascript
+{
   "url": "https://example.woliver.net/recomendacoes/k28Jv5/"
 }
 ```
