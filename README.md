@@ -152,7 +152,6 @@ pesquisa personalizada.
                     "thumbnail": "https://thumbnail-url.jpg",
                     "picture_800x600": "picture-url-800x600.jpg"
                 },
-                
             ],
             "pictures": [
                 "https://picture-1-url.jpg",
