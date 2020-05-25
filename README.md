@@ -40,9 +40,9 @@ GET /api/v1/example/?token=12345678901234567890123456789012
 
 ## Recomendações
 
-### Criar URL de recomendações
+### Criar URL de recomendações - filtros de busca
 
-Esse endpoint é utilizado para a geração de uma URL com recomendações de imóveis. Ao abrir a URL a lead irá visualizar uma lista de imóveis organizados de acordo com os parâmetros de criação listados a seguir.
+Esse endpoint é utilizado para a geração de uma URL com recomendações de imóveis a partir de filtros de busca. Ao abrir a URL a lead irá visualizar uma lista de imóveis organizados de acordo com os parâmetros de criação listados a seguir.
 
 ```http
 POST /api/v1/recommendations/?token=12345678901234567890123456789012
@@ -84,7 +84,7 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
   "listing_type": "res_home,res_apartment",
   "nome": "",
   "email": "dev@woliver.com.br",
-  "hide_filters": false, 
+  "hide_filters": false,
   "limit": 10,
   "page_size": 3
 }
@@ -94,6 +94,39 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 
 ```javascript
 {
+  "url": "https://example.woliver.net/recomendacoes/k28Jv5/"
+}
+```
+
+### Criar URL de recomendações - código do imóvel
+
+Esse endpoint é utilizado para a geração de uma URL com recomendações de imóveis a partir de um código do imóvel. Ao abrir a URL a lead irá visualizar uma lista de imóveis similares ao imóvel referente ao código passado como parâmetro na url.
+
+```http
+POST /api/v1/listings/{listing_id}/recommend/?token=12345678901234567890123456789012
+```
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `token` | `string` | **Obrigatório**. Sua Woliver API token |
+| `listing_id` | `string` | **Obrigatório**. Código do imóvel de acordo com o XML da imobiliária |
+| `phone_number` | `string` | Telefone da lead |
+| `name` | `string` | Nome da lead |
+| `email` | `string` | Email da lead utilizado para enviar recomendações |
+
+#### Request
+
+```javascript
+{
+    "phone_number": "+5548999999999"
+    "name": "Lead Woliver",
+    "email": "dev@woliver.com.br"
+}
+```
+
+#### Response - 201 (application/json)
+
+```javascript
   "url": "https://example.woliver.net/recomendacoes/k28Jv5/"
 }
 ```
