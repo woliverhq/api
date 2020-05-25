@@ -105,8 +105,9 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 Esse endpoint é utilizado para obter a lista de imóveis disponíves da imobiliária.
 
 ```http
-GET /api/v1/listings/
+GET /api/v1/listings/?token=12345678901234567890123456789012
 ```
+
 #### Query Parameters
 | Parâmetro | Tipo | Descrição |
 | :--- | :--- | :--- |
