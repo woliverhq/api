@@ -48,9 +48,16 @@ Esse endpoint é utilizado para a geração de uma URL com recomendações de im
 POST /api/v1/recommendations/?token=12345678901234567890123456789012
 ```
 
+#### Query Parameters
+
 | Parâmetro | Tipo | Descrição |
 | :--- | :--- | :--- |
 | `token` | `string` | **Obrigatório**. Sua Woliver API token |
+
+#### Request
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
 | `coordinates` | `string` | Coordenadas para buscar imóveis próximos |
 | `price` | `string` | Preço para aluguel do imóvel |
 | `taxes_included` | `boolean` | Considerar valores de IPTU e condomínio no valor de aluguel |
@@ -67,8 +74,6 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 | `hide_filters` | `boolean` | Esconder os filtros no header da url de recomendações |
 | `limit` | `number` | Limite de imóveis a serem retornados |
 | `page_size` | `number` | Número de imóveis a serem retornados por página |
-
-#### Request
 
 ```javascript
 {
@@ -106,15 +111,20 @@ Esse endpoint é utilizado para a geração de uma URL com recomendações de im
 POST /api/v1/listings/{listing_id}/recommend/?token=12345678901234567890123456789012
 ```
 
+#### Query Parameters
+
 | Parâmetro | Tipo | Descrição |
 | :--- | :--- | :--- |
 | `token` | `string` | **Obrigatório**. Sua Woliver API token |
+
+#### Request
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
 | `listing_id` | `string` | **Obrigatório**. Código do imóvel de acordo com o XML da imobiliária |
 | `phone_number` | `string` | Telefone da lead |
 | `name` | `string` | Nome da lead |
 | `email` | `string` | Email da lead utilizado para enviar recomendações |
-
-#### Request
 
 ```javascript
 {
