@@ -50,8 +50,6 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 ```
 #### Query Parameters
 
-#### Query Parameters
-
 | Parâmetro | Tipo | Descrição |
 | :--- | :--- | :--- |
 | `token` | `string` | **Obrigatório**. Sua Woliver API token |
