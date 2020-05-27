@@ -47,6 +47,7 @@ Esse endpoint é utilizado para a geração de uma URL com recomendações de im
 ```http
 POST /api/v1/recommendations/?token=12345678901234567890123456789012
 ```
+#### Query Parameters
 
 #### Query Parameters
 
@@ -71,6 +72,7 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 | `listing_type` | `string` | Tipo de imóvel: Casa e/ou Apartamento |
 | `name` | `string` | Nome da lead |
 | `email` | `string` | Email da lead utilizado para enviar recomendações |
+| `staff_email`| `string` | Email do corretor responsável pela recomendação |
 | `hide_filters` | `boolean` | Esconder os filtros no header da url de recomendações |
 | `limit` | `number` | Limite de imóveis a serem retornados |
 | `page_size` | `number` | Número de imóveis a serem retornados por página |
@@ -89,7 +91,8 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
   "listing_type": "res_home,res_apartment",
   "nome": "",
   "email": "dev@woliver.com.br",
-  "hide_filters": false,
+  "staff_email": "staff@woliver.com.br",
+  "hide_filters": false, 
   "limit": 10,
   "page_size": 3
 }
@@ -99,7 +102,7 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 
 ```javascript
 {
-  "url": "https://example.woliver.net/recomendacoes/k28Jv5/"
+  "url": "https://example.woliver.net/recomendacoes/k28Jv5#STAFF/"
 }
 ```
 
