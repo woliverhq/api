@@ -5,6 +5,7 @@
   - [Introdução](#introdução)
   - [Autenticação](#autenticação)
   - [Recomendações](#recomendações)
+  - [Leads](#leads)
   - [Imóveis](#imóveis)
 
 <!-- /TOC -->
@@ -142,6 +143,45 @@ POST /api/v1/listings/{listing_id}/recommend/?token=1234567890123456789012345678
 ```javascript
 {
   "url": "https://example.woliver.net/recomendacoes/k28Jv5/"
+}
+```
+
+## Leads
+
+### Criar lead
+
+Esse endpoint é utilizado para a criação de novas leads. O usuário deverá prover os parâmetros listados a seguir.
+
+```http
+POST /api/v1/lead/?token=12345678901234567890123456789012
+```
+
+#### Query Parameters
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `token` | `string` |**Obrigatório.** Sua Woliver API token |
+
+
+#### Request
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `full_name` | `string` |**Obrigatório.** Nome completo do lead |
+| `cpf` | `string` | CPF do lead (apenas números) |
+| `email` | `string` |**Obrigatório.** E-mail do lead |
+| `phone_number` | `string` | Número de telefone do lead com DDD |
+| `listing` | `number` |**Obrigatório.** Código do imóvel de acordo com o XML da imobiliária |
+| `comments` | `string` | Comentários do lead a respeito do imóvel |
+
+```javascript
+{
+  "full_name": "Lead Woliver",
+  "cpf": "11111111111",
+  "email": "dev@woliver.com",
+  "phone_number": "(99)99999999",
+  "listing": 1532,
+  "comments": "Quero agendar uma visita!"
 }
 ```
 
