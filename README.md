@@ -217,7 +217,7 @@ GET /api/v1/leads/?token=12345678901234567890123456789012
 
 ###  Detalhes da lead
 
-Esse endpoint é utilizado para acessar os detalhes de uma lead específica.
+Esse endpoint é utilizado para acessar os detalhes de uma lead específica. O usuário deverá prover os parâmetros listados a seguir.
 
 ```http
 GET /api/v1/leads/{id}/?token=12345678901234567890123456789012
