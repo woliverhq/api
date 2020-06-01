@@ -215,6 +215,43 @@ GET /api/v1/leads/?token=12345678901234567890123456789012
 ]
 ```
 
+###  Detalhes da lead
+
+Esse endpoint é utilizado para acessar os detalhes de uma lead específica.
+
+```http
+GET /api/v1/leads/{id}/?token=12345678901234567890123456789012
+```
+
+#### Query Parameters
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `token` | `string` |**Obrigatório.** Sua Woliver API token |
+
+#### Request
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `id` | `string` | **Obrigatório**. Id da lead |
+
+#### Response - 200 (application/json)
+
+```javascript
+{
+    "id": 864,
+    "user": {
+        "id": 9,
+        "phone_number": "+5599999999999",
+        "full_name": "Lead Woliver",
+        "email": "dev@jungledevs.com"
+    },
+    "listing": "Listing 1532 (1532)",
+    "staff1": null,
+    "leads_source": null
+}
+```
+
 ## Imóveis
 
 ### Listar imóveis
