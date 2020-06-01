@@ -151,7 +151,7 @@ POST /api/v1/listings/{listing_id}/recommend/?token=1234567890123456789012345678
 Esse endpoint é utilizado para a criação de novas leads. O usuário deverá prover os parâmetros listados a seguir.
 
 ```http
-POST /api/v1/lead/?token=12345678901234567890123456789012
+POST /api/v1/leads/?token=12345678901234567890123456789012
 ```
 
 #### Query Parameters
@@ -243,7 +243,7 @@ GET /api/v1/listings/?token=12345678901234567890123456789012
 Os parâmetros opcionais, quando utilizados, serão levados em conta na atribuição de `scores` aos imóveis, gerando uma
 pesquisa personalizada.
 
-#### Response - 201 (application/json)
+#### Response - 200 (application/json)
 
 ```javascript
 {
