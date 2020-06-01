@@ -160,7 +160,6 @@ POST /api/v1/lead/?token=12345678901234567890123456789012
 | :--- | :--- | :--- |
 | `token` | `string` |**Obrigatório.** Sua Woliver API token |
 
-
 #### Request
 
 | Parâmetro | Tipo | Descrição |
@@ -181,6 +180,39 @@ POST /api/v1/lead/?token=12345678901234567890123456789012
   "listing": 1532,
   "comments": "Quero agendar uma visita!"
 }
+```
+
+###  Listar leads
+
+Esse endpoint é utilizado para listar todas as leads existentes. O usuário deverá prover os parâmetros listados a seguir.
+
+```http
+GET /api/v1/leads/?token=12345678901234567890123456789012
+```
+
+#### Query Parameters
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `token` | `string` |**Obrigatório.** Sua Woliver API token |
+
+#### Response - 200 (application/json)
+
+```javascript
+[
+    {
+        "id": 864,
+        "user": {
+            "id": 9,
+            "phone_number": "+5599999999999",
+            "full_name": "Lead Woliver",
+            "email": "dev@jungledevs.com"
+        },
+        "listing": "Listing 1532 (1532)",
+        "staff1": null,
+        "leads_source": null
+    },
+]
 ```
 
 ## Imóveis
