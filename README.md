@@ -151,7 +151,7 @@ POST /api/v1/listings/{listing_id}/recommend/?token=1234567890123456789012345678
 Esse endpoint é utilizado para a criação de novas leads. O usuário deverá prover os parâmetros listados a seguir.
 
 ```http
-POST /api/v1/lead/?token=12345678901234567890123456789012
+POST /api/v1/leads/?token=12345678901234567890123456789012
 ```
 
 #### Query Parameters
@@ -159,7 +159,6 @@ POST /api/v1/lead/?token=12345678901234567890123456789012
 | Parâmetro | Tipo | Descrição |
 | :--- | :--- | :--- |
 | `token` | `string` |**Obrigatório.** Sua Woliver API token |
-
 
 #### Request
 
@@ -180,6 +179,76 @@ POST /api/v1/lead/?token=12345678901234567890123456789012
   "phone_number": "(99)99999999",
   "listing": 1532,
   "comments": "Quero agendar uma visita!"
+}
+```
+
+###  Listar leads
+
+Esse endpoint é utilizado para listar todas as leads existentes. O usuário deverá prover os parâmetros listados a seguir.
+
+```http
+GET /api/v1/leads/?token=12345678901234567890123456789012
+```
+
+#### Query Parameters
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `token` | `string` |**Obrigatório.** Sua Woliver API token |
+
+#### Response - 200 (application/json)
+
+```javascript
+[
+    {
+        "id": 864,
+        "user": {
+            "id": 9,
+            "phone_number": "+5599999999999",
+            "full_name": "Lead Woliver",
+            "email": "dev@jungledevs.com"
+        },
+        "listing": "Listing 1532 (1532)",
+        "staff1": null,
+        "leads_source": null
+    },
+]
+```
+
+###  Detalhes da lead
+
+Esse endpoint é utilizado para acessar os detalhes de uma lead específica. O usuário deverá prover os parâmetros listados a seguir.
+
+```http
+GET /api/v1/leads/{id}/?token=12345678901234567890123456789012
+```
+
+#### Query Parameters
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `token` | `string` |**Obrigatório.** Sua Woliver API token |
+
+#### Request
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `id` | `string` | **Obrigatório**. Id da lead |
+
+#### Response - 200 (application/json)
+
+```javascript
+{
+    "id": 864,
+    "user": {
+        "id": 9,
+        "phone_number": "+5599999999999",
+        "full_name": "Lead Woliver",
+        "email": "dev@jungledevs.com"
+    },
+    "listing": "Listing 1532 (1532)",
+    "staff1": null,
+    "leads_source": null
 }
 ```
 
@@ -211,7 +280,7 @@ GET /api/v1/listings/?token=12345678901234567890123456789012
 Os parâmetros opcionais, quando utilizados, serão levados em conta na atribuição de `scores` aos imóveis, gerando uma
 pesquisa personalizada.
 
-#### Response - 201 (application/json)
+#### Response - 200 (application/json)
 
 ```javascript
 {
