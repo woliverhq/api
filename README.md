@@ -101,7 +101,7 @@ POST /api/v1/recommendations/?token=12345678901234567890123456789012
 
 ```javascript
 {
-  "url": "https://example.woliver.net/recomendacoes/k28Jv5#STAFF/"
+  "url": "https://example.woliver.net/recomendacoes/k28Jv5?staff_hash=STAFF"
 }
 ```
 
@@ -140,7 +140,7 @@ POST /api/v1/listings/{listing_id}/recommend/?token=1234567890123456789012345678
 
 ```javascript
 {
-  "url": "https://example.woliver.net/recomendacoes/k28Jv5/"
+  "url": "https://example.woliver.net/recomendacoes/k28Jv5?staff_hash=STAFF"
 }
 ```
 
