@@ -312,6 +312,7 @@ pesquisa personalizada.
                 "https://picture-1-url.jpg",
             ],
             "reserved": false,
+            "origin": "Woliver",
             "external_id": "00000",
             "title": "TÍTULO DO ANÚNCIO",
             "url": "https://www.example.com.br/codigo/16430",
@@ -350,7 +351,6 @@ pesquisa personalizada.
             "invalid": false,
             "contract_signed": false,
             "zone": 5,
-            "origin": 5
         },
     ],
     "hide_filters": false,
