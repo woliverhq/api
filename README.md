@@ -169,6 +169,8 @@ POST /api/v1/leads/?token=12345678901234567890123456789012
 | `email` | `string` |**Obrigatório.** E-mail do lead |
 | `phone_number` | `string` | Número de telefone do lead com DDD |
 | `listing` | `number` |**Obrigatório.** Código do imóvel de acordo com o XML da imobiliária |
+| `source` | `slug` |Slug name da origem da lead |
+| `source_id` | `number` |Código da origem da lead |
 | `comments` | `string` | Comentários do lead a respeito do imóvel |
 
 ```javascript
@@ -178,6 +180,8 @@ POST /api/v1/leads/?token=12345678901234567890123456789012
   "email": "dev@woliver.com",
   "phone_number": "(99)99999999",
   "listing": 1532,
+  "source": "origem",
+  "source_id": 1,
   "comments": "Quero agendar uma visita!"
 }
 ```
