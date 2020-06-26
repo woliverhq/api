@@ -178,11 +178,27 @@ POST /api/v1/leads/?token=12345678901234567890123456789012
   "full_name": "Lead Woliver",
   "cpf": "11111111111",
   "email": "dev@woliver.com",
-  "phone_number": "(99)99999999",
-  "listing": 1532,
-  "source": "origem",
-  "source_id": 1,
+  "phone_number": "+554899999999",
+  "listing": "75761",
+  "source": "canaldigital",
+  "source_id": 8,
   "comments": "Quero agendar uma visita!"
+}
+```
+#### Response - 201 (application/json)
+
+```javascript
+{
+    "id": 257,
+    "user": {
+        "id": 92,
+        "phone_number": "+554899999999",
+        "full_name": "Lead Woliver",
+        "email": "dev@woliver.com"
+    },
+    "listing": "75761",
+    "staff1": null,
+    "source_id": 8
 }
 ```
 
@@ -214,12 +230,12 @@ GET /api/v1/leads/?token=12345678901234567890123456789012
         },
         "listing": "Listing 1532 (1532)",
         "staff1": null,
-        "leads_source": null
+        "source_id": null
     },
 ]
 ```
 
-###  Detalhes da lead
+### Detalhes da lead
 
 Esse endpoint é utilizado para acessar os detalhes de uma lead específica. O usuário deverá prover os parâmetros listados a seguir.
 
@@ -252,9 +268,84 @@ GET /api/v1/leads/{id}/?token=12345678901234567890123456789012
     },
     "listing": "Listing 1532 (1532)",
     "staff1": null,
-    "leads_source": null
+    "source_id": null
 }
 ```
+
+###  Listar origem das leads
+
+Esse endpoint é utilizado para acessar a lista cadastrada na Woliver de origem das leads
+
+```http
+GET /api/v1/leads-sources/?token=12345678901234567890123456789012
+```
+
+#### Response - 200 (application/json)
+
+```javascript
+[
+    {
+        "id": 1,
+        "slug_name": "hints",
+        "name": "hints.com.br"
+    },
+    {
+        "id": 2,
+        "slug_name": "ayla",
+        "name": "Site Ayla"
+    },
+    {
+        "id": 3,
+        "slug_name": "olx",
+        "name": "OLX"
+    },
+    {
+        "id": 4,
+        "slug_name": "mercadolivre",
+        "name": "Mercado Livre"
+    },
+    {
+        "id": 5,
+        "slug_name": "chavenamao",
+        "name": "Chave na mão"
+    },
+    {
+        "id": 6,
+        "slug_name": "imovelweb",
+        "name": "Imovel Web"
+    },
+    {
+        "id": 7,
+        "slug_name": "zapimoveis",
+        "name": "Zap Imóveis"
+    }
+    {
+        "id": 8,
+        "slug_name": "canaldigital",
+        "name": "Canal Digital"
+    },
+    {
+        "id": 9,
+        "slug_name": "vivareal",
+        "name": "Viva Real"
+    },
+
+]
+```
+
+#### Origem das leads cadastradas na Woliver
+
+| Id | Nome | Slug |
+| :--- | :--- | :--- |
+| 1 | hints.com.br | hints |
+| 2 | Site Ayla | ayla |
+| 3 | OLX | olx |
+| 4 | Mercado Livre | mercadolivre |
+| 5 | Chave na mão | chavenamao |
+| 6 | Imovel Web | imovelweb |
+| 7 | Zap Imóveis | zapimoveis |
+| 8 | Canal Digital | canaldigital |
+| 9 | Viva Real | vivareal |
 
 ## Imóveis
 
