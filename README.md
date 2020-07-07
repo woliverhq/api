@@ -329,6 +329,16 @@ GET /api/v1/leads-sources/?token=12345678901234567890123456789012
         "slug_name": "vivareal",
         "name": "Viva Real"
     },
+     {
+        "id": 10,
+        "slug_name": "website",
+        "name": "Website"
+    },
+    {
+        "id": 11,
+        "slug_name": "whatsapp",
+        "name": "WhatsApp"
+    },
 
 ]
 ```
@@ -346,6 +356,8 @@ GET /api/v1/leads-sources/?token=12345678901234567890123456789012
 | 7 | Zap Imóveis | zapimoveis |
 | 8 | Canal Digital | canaldigital |
 | 9 | Viva Real | vivareal |
+| 10 | Website | website |
+| 11 | WhatsApp | whatsapp |
 
 ## Imóveis
 
