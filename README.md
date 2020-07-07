@@ -6,6 +6,7 @@
   - [Autenticação](#autenticação)
   - [Leads](#leads)
   - [Imóveis](#imóveis)
+  - [Visitas](#visitas)
   - [Recomendações](#recomendações)
 
 <!-- /TOC -->
@@ -361,6 +362,28 @@ pesquisa personalizada.
     "name": null
 }
 ```
+
+## Visitas
+
+### URL para agendamento de visita
+
+Para direcionar o usuário para o agendamento de visita para um imóvel específico, basta utilizar a URL com o seguinte formato:
+
+[example.woliver.net/agendamento/ID_DO_IMOVEL](https://example.woliver.net/agendamento/ID_DO_IMOVEL).
+
+Exemplo, para o imóvel com código 74802 no demo.woliver.net, você pode agendar uma visita acessando https://demo.woliver.net/agendamento/74802.
+
+Essa URL pode ser utilizada no próprio site da imobiliária ou quaisquer ferramentas com a função de direcionar o usuário para o agendamento de visita em um imóvel específico. Por exemplo, adicionando um botão "Agendar Visita" nos detalhes do imóvel no site da imobiliária em si.
+
+### URL para agendamento de visita com identificador da origem
+
+Se você busca entender qual a origem do agendamento de visita em um imóvel, basta adicionar a source_id ou slug na URL de agendamento de visita:
+
+- Opção 1 (source id): https://demo.woliver.net/agendamento/29939?source_id=7
+
+- Opção 2 (source slug): https://demo.woliver.net/agendamento/29939?source=zapimoveis
+
+Os valores possíveis para o campo source podem ser visualizados na tabela acima (#Origem das leads cadastradas na Woliver). Esses valores serão exportados junto com as informações da lead no arquivo dados.csv que pode ser acessado no back office da imobiliária.
 
 ## Recomendações
 
