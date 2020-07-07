@@ -369,7 +369,7 @@ pesquisa personalizada.
 
 Para direcionar o usuário para o agendamento de visita para um imóvel específico, basta utilizar a URL com o seguinte formato:
 
-[example.woliver.net/agendamento/ID_DO_IMOVEL](https://example.woliver.net/agendamento/ID_DO_IMOVEL).
+```https://example.woliver.net/agendamento/ID_DO_IMOVEL```
 
 Exemplo, para o imóvel com código 74802 no demo.woliver.net, você pode agendar uma visita acessando https://demo.woliver.net/agendamento/74802.
 
