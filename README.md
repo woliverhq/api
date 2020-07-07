@@ -386,7 +386,7 @@ Se você busca entender qual a origem do agendamento de visita em um imóvel, ba
 
 - Opção 2 (source slug): https://demo.woliver.net/agendamento/29939?source=zapimoveis
 
-Os valores possíveis para o campo source podem ser visualizados na tabela acima (#Origem das leads cadastradas na Woliver). Esses valores serão exportados junto com as informações da lead no arquivo dados.csv que pode ser acessado no back office da imobiliária.
+Os valores possíveis para o campo source podem ser visualizados na tabela acima ([Origem das leads cadastradas na Woliver](#origem-das-leads-cadastradas-na-woliver)). Esses valores serão exportados junto com as informações da lead no arquivo dados.csv que pode ser acessado no back office da imobiliária.
 
 ## Recomendações
 
