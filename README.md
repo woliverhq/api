@@ -528,7 +528,7 @@ GET /api/v1/proposals/?token=12345678901234567890123456789012
         "created_at": "2020-07-27T17:04:27.118717Z",
         "active": true,
         "documents": [],
-        "lease": {
+        "lead": {
             "id": 6,
             "user": {
                 "id": 11,
