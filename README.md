@@ -124,7 +124,7 @@ GET /api/v1/leads/?token=12345678901234567890123456789012
       full_name: "Lead Woliver",
       email: "dev@jungledevs.com",
     },
-    listing: "Listing 1532 (1532)",
+    listing: "75761",
     staff1: null,
     source_id: null,
   },
@@ -162,7 +162,7 @@ GET /api/v1/leads/{id}/?token=12345678901234567890123456789012
         "full_name": "Lead Woliver",
         "email": "dev@jungledevs.com"
     },
-    "listing": "Listing 1532 (1532)",
+    "listing": "75761",
     "staff1": null,
     "source_id": null
 }
