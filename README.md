@@ -7,6 +7,7 @@
 - [Leads](#leads)
 - [Imóveis](#imóveis)
 - [Visitas](#visitas)
+- [Propostas](#propostas)
 - [Recomendações](#recomendações)
 
 <!-- /TOC -->
@@ -388,6 +389,69 @@ Se você busca entender qual a origem do agendamento de visita em um imóvel, ba
 
 Os valores possíveis para o campo source podem ser visualizados na tabela acima ([Origem das leads cadastradas na Woliver](#origem-das-leads-cadastradas-na-woliver)). Esses valores serão exportados junto com as informações da lead no arquivo dados.csv que pode ser acessado no back office da imobiliária.
 
+## Propostas
+
+### Listar Propostas
+
+Esse endpoint é utilizado para listar todas as propostas da imobiliára.
+
+```http
+GET /api/v1/proposals/?token=12345678901234567890123456789012
+```
+
+#### Query Parameters
+
+| Parâmetro | Tipo     | Descrição                              |
+| :-------- | :------- | :------------------------------------- |
+| `token`   | `string` | **Obrigatório**. Sua Woliver API token |
+
+#### Response - 200 (application/json)
+
+```javascript
+[
+  {
+    id: 2,
+    booking: 2,
+    living_type: "family",
+    number_of_people: 1,
+    has_pet: false,
+    pet_description: "",
+    self_description: "",
+    rent_price: 1450.0,
+    request_description: null,
+    approved: null,
+    created_at: "2020-07-27T17:04:27.118717Z",
+    active: true,
+    documents: [],
+    lead: {
+      id: 6,
+      user: {
+        id: 11,
+        phone_number: null,
+        email: "dev@woliver.com",
+        full_name: "Lead Woliver",
+      },
+      leads_source: null,
+      status: "not_initiated",
+    },
+    external_id: "0",
+    listing: {
+      external_id: "0",
+      thumbnail: null,
+      rent_price: 1450.0,
+      total_price: 1450.0,
+      address: "RUA",
+      neighborhood: "BAIRRO",
+    },
+    from_staff: false,
+    suggested_price: null,
+    owner_price: null,
+    price_requests: [],
+    modification_requests: [],
+  },
+];
+```
+
 ## Recomendações
 
 ### Criar URL de recomendações - filtros de busca
@@ -492,67 +556,4 @@ POST /api/v1/listings/{listing_id}/recommend/?token=1234567890123456789012345678
 {
   "url": "https://example.woliver.net/recomendacoes/k28Jv5?staff_hash=STAFF"
 }
-```
-
-## Propostas
-
-### Listar Propostas
-
-Esse endpoint é utilizado para listar todas as propostas da imobiliára.
-
-```http
-GET /api/v1/proposals/?token=12345678901234567890123456789012
-```
-
-#### Query Parameters
-
-| Parâmetro | Tipo     | Descrição                              |
-| :-------- | :------- | :------------------------------------- |
-| `token`   | `string` | **Obrigatório**. Sua Woliver API token |
-
-#### Response - 200 (application/json)
-
-```javascript
-[
-    {
-        "id": 2,
-        "booking": 2,
-        "living_type": "family",
-        "number_of_people": 1,
-        "has_pet": false,
-        "pet_description": "",
-        "self_description": "",
-        "rent_price": 1450.0,
-        "request_description": null,
-        "approved": null,
-        "created_at": "2020-07-27T17:04:27.118717Z",
-        "active": true,
-        "documents": [],
-        "lead": {
-            "id": 6,
-            "user": {
-                "id": 11,
-                "phone_number": null,
-                "email": "dev@woliver.com",
-                "full_name": "Lead Woliver"
-            },
-            "leads_source": null,
-            "status": "not_initiated"
-        },
-        "external_id": "0",
-        "listing": {
-            "external_id": "0",
-            "thumbnail": null,
-            "rent_price": 1450.0,
-            "total_price": 1450.0,
-            "address": "RUA",
-            "neighborhood": "BAIRRO"
-        },
-        "from_staff": false,
-        "suggested_price": null,
-        "owner_price": null,
-        "price_requests": [],
-        "modification_requests": []
-    },
-]
 ```
