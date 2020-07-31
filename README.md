@@ -363,7 +363,7 @@ pesquisa personalizada.
 
 ### Criar novo agendamento
 
-Esse endpoint é utilizado para agendar uma visita a um determinado imóvel. 
+Esse endpoint é utilizado para criar um agendamento de visita a um imóvel.
 
 ```http
 POST /api/v1/bookings/?token=12345678901234567890123456789012
@@ -381,23 +381,16 @@ POST /api/v1/bookings/?token=12345678901234567890123456789012
 | :--- | :--- | :--- |
 | `listing` | `number` | **Obrigatório**. Código do imóvel de acordo com o XML da imobiliária |
 | `date_and_time` | `datetime` | **Obrigatório** Data e horário da visita |
-| `user_id` | `number` | **Obrigatório** Código do cliente que deseja realizar a visita |
-| `source` | `string` | Slug name do portal de origem do agendamento |
-| `source_id` | `number` | Código do portal de origem do agendamento |
-| `anonymous_id` | `number` | Código usado para identificação dos usuários pelos portais |
-| `staff_hash` | `string` | Código do corretor responsável pela visita |
-| `recommendation_hash` | `string` | Código da recomendação, caso o agendamento seja feito através da página de recomendações |
+| `user_id` | `number` | **Obrigatório** Código do cliente que deseja agendar a visita |
+| `staff_hash` | `string` | Código do corretor responsável pelo agendamento da visita |
+
 
 ```javascript
 {
-    "listing": "1",
-    "date_and_time": "2020-12-30T10:30:00-03:00",
-    "user_id": 37,
-    "source": "origem",
-    "source_id": "",
-    "anonymous_id": "",
-    "staff_hash": "",
-    "recommendation_hash": ""
+	"listing": "00000",
+	"date_and_time": "2020-12-25T15:00:00Z",
+	"user_id": 2,
+	"staff_hash": "staff"
 }
 ```
 
@@ -405,13 +398,34 @@ POST /api/v1/bookings/?token=12345678901234567890123456789012
 
 ```javascript
 {
-    "id": 26,
+    "id": 12,
     "user": {
-        "id": 37,
+        "id": 2,
         "phone_number": "+5599999999999",
         "email": "dev@woliver.com",
-        "full_name": "Lead Woliver",
-        "cpf": "11111111111",
+        "full_name": "Lead Wolier",
+        "cpf": "00000000000",
+        "date_of_birth": "1996-12-03",
+        "rg": "0000000",
+        "issuing_agency": "SSP",
+        "gender": "",
+        "civil_status": null,
+        "nationality": "null,
+        "occupation": null,
+        "professional_data": null,
+        "current_address": "Address",
+        "role": "client",
+        "backoffice_filters": null,
+        "need_change_password": false,
+        "picture": null,
+        "active_lease": null
+    },
+    "staff": {
+        "id": 5,
+        "phone_number": null,
+        "email": "",
+        "full_name": "Staff",
+        "cpf": null,
         "date_of_birth": null,
         "rg": null,
         "issuing_agency": null,
@@ -421,26 +435,26 @@ POST /api/v1/bookings/?token=12345678901234567890123456789012
         "occupation": null,
         "professional_data": null,
         "current_address": null,
-        "role": "client",
-        "need_change_password": true,
+        "role": "staff",
+        "backoffice_filters": null,
+        "need_change_password": false,
         "picture": null,
         "active_lease": null
     },
-    "staff": null,
     "lease": {
-        "id": 21,
-        "rent_price": 2100.0,
-        "total_price": 2715.0,
-        "status": "not_initiated",
+        "id": 2,
+        "rent_price": 10000.0,
+        "total_price": 10858.0,
+        "status": "booking_scheduled",
         "monthly_income": null,
         "total_monthly_income": 0,
-        "created_at": "2020-06-22T15:49:52.396828Z",
-        "updated_at": "2020-06-22T15:49:52.396915Z",
+        "created_at": "2020-07-09T20:45:06.520186Z",
+        "updated_at": "2020-07-09T21:23:32.599802Z",
         "income_approved": null,
         "identification_approved": null,
         "proof_of_income_approved": null,
         "credit_card_statement_approved": null,
-        "required_income": 13575.0,
+        "required_income": 54290.0,
         "proposal": null,
         "warranty": "rapid",
         "fire_insurance_price": null,
@@ -448,33 +462,29 @@ POST /api/v1/bookings/?token=12345678901234567890123456789012
     },
     "phone_number": "+5599999999999",
     "available": true,
-    "created_at": "2020-06-25T17:13:23.759184Z",
-    "updated_at": "2020-06-25T17:13:23.759262Z",
-    "date_and_time": "2020-12-30T13:30:00Z",
+    "created_at": "2020-07-31T20:43:26.011032Z",
+    "updated_at": "2020-07-31T20:43:26.011101Z",
+    "date_and_time": "2020-12-25T15:00:00Z",
     "warned": false,
     "cancelled": false,
+    "booking_extra_info": null,
+    "booking_key_option": null,
     "listing": {
-        "id": 602,
-        "external_id": "1",
+        "id": 4,
+        "external_id": 00000,
         "title": null,
-        "address": "Rua",
+        "address": "RUA",
         "street_number": "0",
-        "neighborhood": "Bairro",
-        "city": "Cidade",
-        "converted_pictures": [
-            {
-            "picture": "picture.jpg",
-            "thumbnail": "thumbnail.jpg",
-            "picture_800x600": "picture-800x600.jpg"
-            },
-        ],
-        "rent_price": 2100.0,
-        "condominium_fee": 615.0,
-        "taxes": null,
+        "neighborhood": "BAIRRO",
+        "city": "CIDADE",
+        "converted_pictures": [],
+        "rent_price": 10000.0,
+        "condominium_fee": 580.0,
+        "taxes": 278.0,
         "insurance": null,
-        "total_price": 2715.0,
-        "bedrooms": 2,
-        "listing_type": "res_apartment",
+        "total_price": 10858.0,
+        "bedrooms": 1,
+        "listing_type": "res_home",
         "interested_people": 0,
         "reserved": false,
         "contract_signed": false
