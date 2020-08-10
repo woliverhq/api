@@ -389,6 +389,137 @@ Se você busca entender qual a origem do agendamento de visita em um imóvel, ba
 
 Os valores possíveis para o campo source podem ser visualizados na tabela acima ([Origem das leads cadastradas na Woliver](#origem-das-leads-cadastradas-na-woliver)). Esses valores serão exportados junto com as informações da lead no arquivo dados.csv que pode ser acessado no back office da imobiliária.
 
+### Criar novo agendamento
+
+Esse endpoint é utilizado para criar um agendamento de visita a um imóvel.
+
+```http
+POST /api/v1/bookings/?token=12345678901234567890123456789012
+```
+
+#### Query Parameters
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `token` | `string` | **Obrigatório**. Sua Woliver API token |
+
+#### Request
+
+| Parâmetro | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `listing` | `number` | **Obrigatório**. Código do imóvel de acordo com o XML da imobiliária |
+| `date_and_time` | `datetime` | **Obrigatório** Data e horário da visita |
+| `user_id` | `number` | **Obrigatório** Código do cliente que deseja agendar a visita |
+| `staff_hash` | `string` | Código do corretor responsável pelo agendamento da visita |
+
+
+```javascript
+{
+	"listing": "00000",
+	"date_and_time": "2020-12-25T15:00:00Z",
+	"user_id": 2,
+	"staff_hash": "staff"
+}
+```
+
+#### Response - 201 (application/json)
+
+```javascript
+{
+    "id": 12,
+    "user": {
+        "id": 2,
+        "phone_number": "+5599999999999",
+        "email": "dev@woliver.com",
+        "full_name": "Lead Wolier",
+        "cpf": "00000000000",
+        "date_of_birth": "1996-12-03",
+        "rg": "0000000",
+        "issuing_agency": "SSP",
+        "gender": "",
+        "civil_status": null,
+        "nationality": "null,
+        "occupation": null,
+        "professional_data": null,
+        "current_address": "Address",
+        "role": "client",
+        "backoffice_filters": null,
+        "need_change_password": false,
+        "picture": null,
+        "active_lease": null
+    },
+    "staff": {
+        "id": 5,
+        "phone_number": null,
+        "email": "",
+        "full_name": "Staff",
+        "cpf": null,
+        "date_of_birth": null,
+        "rg": null,
+        "issuing_agency": null,
+        "gender": null,
+        "civil_status": null,
+        "nationality": null,
+        "occupation": null,
+        "professional_data": null,
+        "current_address": null,
+        "role": "staff",
+        "backoffice_filters": null,
+        "need_change_password": false,
+        "picture": null,
+        "active_lease": null
+    },
+    "lease": {
+        "id": 2,
+        "rent_price": 10000.0,
+        "total_price": 10858.0,
+        "status": "booking_scheduled",
+        "monthly_income": null,
+        "total_monthly_income": 0,
+        "created_at": "2020-07-09T20:45:06.520186Z",
+        "updated_at": "2020-07-09T21:23:32.599802Z",
+        "income_approved": null,
+        "identification_approved": null,
+        "proof_of_income_approved": null,
+        "credit_card_statement_approved": null,
+        "required_income": 54290.0,
+        "proposal": null,
+        "warranty": "rapid",
+        "fire_insurance_price": null,
+        "fire_insurance_agreed": null
+    },
+    "phone_number": "+5599999999999",
+    "available": true,
+    "created_at": "2020-07-31T20:43:26.011032Z",
+    "updated_at": "2020-07-31T20:43:26.011101Z",
+    "date_and_time": "2020-12-25T15:00:00Z",
+    "warned": false,
+    "cancelled": false,
+    "booking_extra_info": null,
+    "booking_key_option": null,
+    "listing": {
+        "id": 4,
+        "external_id": 00000,
+        "title": null,
+        "address": "RUA",
+        "street_number": "0",
+        "neighborhood": "BAIRRO",
+        "city": "CIDADE",
+        "converted_pictures": [],
+        "rent_price": 10000.0,
+        "condominium_fee": 580.0,
+        "taxes": 278.0,
+        "insurance": null,
+        "total_price": 10858.0,
+        "bedrooms": 1,
+        "listing_type": "res_home",
+        "interested_people": 0,
+        "reserved": false,
+        "contract_signed": false
+    }
+}
+```
+
 ## Propostas
 
 ### Listar Propostas
@@ -460,6 +591,7 @@ Esse endpoint é utilizado para a geração de uma URL com recomendações de im
 
 ```http
 POST /api/v1/recommendations/?token=12345678901234567890123456789012
+
 ```
 
 #### Query Parameters
@@ -553,7 +685,8 @@ POST /api/v1/listings/{listing_id}/recommend/?token=1234567890123456789012345678
 #### Response - 201 (application/json)
 
 ```javascript
-{
+}
   "url": "https://example.woliver.net/recomendacoes/k28Jv5?staff_hash=STAFF"
 }
 ```
+
