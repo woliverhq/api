@@ -259,6 +259,7 @@ GET /api/v1/leads-sources/?token=12345678901234567890123456789012
 ## Imóveis
 
 ### Cadastrar novo imóvel
+Esse endpoint permite registrar novos imóveis na plataforma
 
 ```http
 POST /api/v1/backoffice-listings/
@@ -331,6 +332,102 @@ POST /api/v1/backoffice-listings/
 | `available`               | `boolean` | Imóvel disponível ou não                                      |
 | `invalid`                 | `boolean` | Informações do imóvel inválidas ou não                        |
 
+#### Response - 201 (application/json)
+
+```javascript
+{
+    "id": 2856,
+    "external_id": "519253",
+    "reference": null,
+    "owner": null,
+    "staff": null,
+    "url": "google.com",
+    "video": "https://www.youtube.com/watch?v=pDHxKKZOUOU",
+    "video_id": "pDHxKKZOUOU",
+    "exclusive": false,
+    "new_release": false,
+    "proposal": false,
+    "sign_placed": false,
+    "vacancy": true,
+    "publicize_permission": true,
+    "advertisement_type": null,
+    "registration_origin": "back_office",
+    "registration_agency": null,
+    "portals": null,
+    "origin": null,
+    "title": "Great title",
+    "notes": null,
+    "description": "Description",
+    "listing_description": "Listing",
+    "condominium_description": "Condominium",
+    "neighborhood_description": "Neighborhood",
+    "listing_type": "res_home",
+    "purpose_type": "residential",
+    "transaction_type": "rent",
+    "floor": 47,
+    "bedrooms": 9,
+    "bathrooms": 6.0,
+    "number_of_ensuites": 4,
+    "parking_spots": 10,
+    "covered_parking_spots": 10,
+    "parking_spots_number": [
+        111,
+        222,
+        333
+    ],
+    "garage_type": "Underground",
+    "hobbybox": true,
+    "hobbybox_number": "444",
+    "living_area": 120.0,
+    "total_area": 150.0,
+    "furnished": "furnished",
+    "pets": true,
+    "penthouse": true,
+    "solar_orientation": "morning",
+    "building_position": "sides",
+    "building_name": "Great name",
+    "concierge_type": "concierge",
+    "key_type": "password",
+    "address": "Address",
+    "extra_address_info": "Extra info",
+    "street_number": "0",
+    "coordinates": null,
+    "postal_code": "00000000",
+    "neighborhood": "Neighborhood",
+    "city": "City",
+    "neighborhood_slug": "neighborhood",
+    "city_slug": "city",
+    "state": "AC",
+    "rent_price": 10000.0,
+    "sale_price": null,
+    "condominium_fee": null,
+    "taxes_type": "monthly",
+    "taxes": 40.0,
+    "insurance": 130.0,
+    "garbage_fee": 80.0,
+    "available": true,
+    "invalid": false,
+    "created_at": "2020-11-11T18:22:36.852784Z",
+    "updated_at": "2020-11-11T18:22:36.852989Z",
+    "additional_costs": [
+        {
+            "id": 10,
+            "title": "Cost 2",
+            "value": 50.0
+        },
+        {
+            "id": 9,
+            "title": "Cost 1",
+            "value": 150.0
+        }
+    ],
+    "comments": [],
+    "converted_pictures": [],
+    "registration_comments": null,
+    "features": []
+}
+```
+
 ### Atualizar imóvel
 O endpoint possibilita alterar dados de um imóvel já cadastrado na plataforma.
 
@@ -402,9 +499,105 @@ PATCH /api/v1/backoffice-listings/{external_id}/
 | `taxes`                   | `number`  | Valor do IPTU                                                 |
 | `insurance`               | `number`  | Valor do seguro do imóvel                                     |
 | `garbage_fee`             | `number`  | Taxa de coleta de lixo                                        |
+| `additional_costs`        | `dict`    | Custos adicionais do imóvel                                   |
 | `available`               | `boolean` | Imóvel disponível ou não                                      |
 | `invalid`                 | `boolean` | Informações do imóvel inválidas ou não                        |
 
+#### Response - 200 (application/json)
+
+```javascript
+{
+    "id": 2856,
+    "external_id": "519253",
+    "reference": null,
+    "owner": null,
+    "staff": null,
+    "url": "google.com",
+    "video": "https://www.youtube.com/watch?v=pDHxKKZOUOU",
+    "video_id": "pDHxKKZOUOU",
+    "exclusive": false,
+    "new_release": false,
+    "proposal": false,
+    "sign_placed": false,
+    "vacancy": true,
+    "publicize_permission": true,
+    "advertisement_type": null,
+    "registration_origin": "back_office",
+    "registration_agency": null,
+    "portals": null,
+    "origin": null,
+    "title": "Great title",
+    "notes": null,
+    "description": "Description",
+    "listing_description": "Listing",
+    "condominium_description": "Condominium",
+    "neighborhood_description": "Neighborhood",
+    "listing_type": "res_home",
+    "purpose_type": "residential",
+    "transaction_type": "rent",
+    "floor": 47,
+    "bedrooms": 9,
+    "bathrooms": 6.0,
+    "number_of_ensuites": 4,
+    "parking_spots": 10,
+    "covered_parking_spots": 10,
+    "parking_spots_number": [
+        111,
+        222,
+        333
+    ],
+    "garage_type": "Underground",
+    "hobbybox": true,
+    "hobbybox_number": "444",
+    "living_area": 120.0,
+    "total_area": 150.0,
+    "furnished": "furnished",
+    "pets": true,
+    "penthouse": true,
+    "solar_orientation": "morning",
+    "building_position": "sides",
+    "building_name": "Great name",
+    "concierge_type": "concierge",
+    "key_type": "password",
+    "address": "Address",
+    "extra_address_info": "Extra info",
+    "street_number": "0",
+    "coordinates": null,
+    "postal_code": "00000000",
+    "neighborhood": "Neighborhood",
+    "city": "City",
+    "neighborhood_slug": "neighborhood",
+    "city_slug": "city",
+    "state": "AC",
+    "rent_price": 10000.0,
+    "sale_price": null,
+    "condominium_fee": null,
+    "taxes_type": "monthly",
+    "taxes": 40.0,
+    "insurance": 130.0,
+    "garbage_fee": 80.0,
+    "available": true,
+    "invalid": false,
+    "created_at": "2020-11-11T18:22:36.852784Z",
+    "updated_at": "2020-11-11T18:22:36.852989Z",
+    "additional_costs": [
+        {
+            "id": 10,
+            "title": "Cost 2",
+            "value": 50.0
+        },
+        {
+            "id": 9,
+            "title": "Cost 1",
+            "value": 150.0
+        }
+    ],
+    "comments": [],
+    "converted_pictures": [],
+    "registration_comments": null,
+    "features": []
+}
+```
 
 ### Listar imóveis
 
