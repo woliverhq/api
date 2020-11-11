@@ -258,6 +258,154 @@ GET /api/v1/leads-sources/?token=12345678901234567890123456789012
 
 ## Imóveis
 
+### Cadastrar novo imóvel
+
+```http
+POST /api/v1/backoffice-listings/
+```
+
+#### Request
+
+| Parâmetro                 | Tipo      | Descrição                                                     |
+| :------------------------ | :-------- | :------------------------------------------------------------ |
+| `reference`               | `string`  | String de referência do imóvel, similar ao `external_id`      |
+| `owner`                   | `number`  | Preço para aluguel do imóvel                                  |
+| `staff`                   | `number`  | Id do usuário corretor responsável pelo registro do imóvel    |
+| `url`                     | `string`  | Url do anúncio original do imóvel                             |
+| `video`                   | `string`  | Url do YouTube do vídeo do imóvel                             |
+| `exclusive`               | `boolean` | Imóvel exclusivo da imobiliária ou não                        |
+| `new_release`             | `boolean` | Imóvel é lançamento ou não                                    |
+| `sign_placed`             | `boolean` | Placa de divulgação colocada ou não                           |
+| `vacancy`                 | `boolean` | Imóvel vago ou não                                            |
+| `publicize_permission`    | `boolean` | Permissão para divulgação do imóvel                           |
+| `advertisement_type`      | `string`  | Tipo de divulgação                                            |
+| `registration_origin`     | `string`  | Origem do registro do imóvel: Back Office ou Canal Digital    |
+| `registration_agency`     | `string`  | Agência na qual o imóvel foi registrado                       |
+| `origin`                  | `number`  | Fetch de origem do imóvel                                     |
+| `title`                   | `string`  | Título do anúncio                                             |
+| `notes`                   | `string`  | Notas referentes ao imóvel                                    |
+| `description`             | `string`  | Descrição do anúncio                                          |
+| `listing_description`     | `string`  | Descrição do imóvel                                           |
+| `condominium_description` | `string`  | Descrição do condomínio                                       |
+| `neighborhood_description`| `string`  | Descrição do bairro                                           |
+| `listing_type`            | `string`  | Tipo de imóvel: Casa e/ou Apartamento                         |
+| `purpose_type`            | `string`  | Propósito do imóvel: Comercial/Residencial/Ambos              |
+| `transaction_type`        | `string`  | Tipo de negociação: Aluguel/Venda/Ambos                       |
+| `floor`                   | `number`  | Andar do imóvel                                               |
+| `bedrooms`                | `number`  | Número de quartos                                             |
+| `bathrooms`               | `number`  | Número de banheiros                                           |
+| `number_of_ensuites`      | `number`  | Número de suítes                                              |
+| `parking_spots`           | `number`  | Número de vagas de garagem                                    |
+| `covered_parking_spots`   | `number`  | Número de vagas de garagem cobertas                           |
+| `parking_spots_number`    | `array`   | Número das vagas de garagem                                   |
+| `garage_type`             | `string`  | Tipo de garagem                                               |
+| `hobbybox`                | `boolean` | Possui hobbybox ou não                                        |
+| `hobbybox_number`         | `string`  | Número do hobbybox                                            |
+| `living_area`             | `number`  | Área útil                                                     |
+| `total_area`              | `number`  | Área total                                                    |
+| `furnished`               | `string`  | Mobília do imóvel: Mobiliado/Semi-mobiliado/Não mobiliado     |
+| `pets`                    | `boolean` | Aceita animais de estimação ou não                            |
+| `penthouse`               | `boolean` | É cobertura ou não                                            |
+| `solar_orientation`       | `string`  | Orientação solar: Manhã/Tarde/Ambos/Desconhecido              |
+| `building_position`       | `string`  | Posição em relação à fachada do edifício: Frente/Lado/Fundos  |
+| `building_name`           | `string`  | Nome do edifício                                              |
+| `concierge_type`          | `string`  | Tipo de portaria                                              |
+| `key_type`                | `string`  | Tipo de chave                                                 |
+| `address`                 | `string`  | Endereço                                                      |
+| `extra_address_info`      | `string`  | Complemento                                                   |
+| `street_number`           | `string`  | Número da rua                                                 |
+| `coordinates`             | `string`  | Coordenadas geográficas                                       |
+| `postal_code`             | `string`  | CEP                                                           |
+| `neighborhood`            | `string`  | Bairro                                                        |
+| `city`                    | `string`  | Cidade                                                        |
+| `neighborhood_slug`       | `string`  | Slug name do bairro                                           |
+| `city_slug`               | `string`  | Slug name da cidade                                           |
+| `state`                   | `string`  | UF do imóvel                                                  |
+| `rent_price`              | `number`  | Valor do aluguel do imóvel                                    |  
+| `sale_price`              | `number`  | Valor de venda do imóvel                                      |
+| `condominium_fee`         | `number`  | Taxa de condomínio                                            |
+| `taxes_type`              | `string`  | Tipo de pagamento do IPTU: Anual/Mensal                       |
+| `taxes`                   | `number`  | Valor do IPTU                                                 |
+| `insurance`               | `number`  | Valor do seguro do imóvel                                     |
+| `garbage_fee`             | `number`  | Taxa de coleta de lixo                                        |
+| `available`               | `boolean` | Imóvel disponível ou não                                      |
+| `invalid`                 | `boolean` | Informações do imóvel inválidas ou não                        |
+
+### Atualizar imóvel
+O endpoint possibilita alterar dados de um imóvel já cadastrado na plataforma.
+
+```http
+PATCH /api/v1/backoffice-listings/{external_id}/
+```
+
+#### Request
+
+| Parâmetro                 | Tipo      | Descrição                                                     |
+| :------------------------ | :-------- | :------------------------------------------------------------ |
+| `reference`               | `string`  | String de referência do imóvel, similar ao `external_id`      |
+| `owner`                   | `number`  | Preço para aluguel do imóvel                                  |
+| `staff`                   | `number`  | Id do usuário corretor responsável pelo registro do imóvel    |
+| `url`                     | `string`  | Url do anúncio original do imóvel                             |
+| `video`                   | `string`  | Url do YouTube do vídeo do imóvel                             |
+| `exclusive`               | `boolean` | Imóvel exclusivo da imobiliária ou não                        |
+| `new_release`             | `boolean` | Imóvel é lançamento ou não                                    |
+| `sign_placed`             | `boolean` | Placa de divulgação colocada ou não                           |
+| `vacancy`                 | `boolean` | Imóvel vago ou não                                            |
+| `publicize_permission`    | `boolean` | Permissão para divulgação do imóvel                           |
+| `advertisement_type`      | `string`  | Tipo de divulgação                                            |
+| `registration_origin`     | `string`  | Origem do registro do imóvel: Back Office ou Canal Digital    |
+| `registration_agency`     | `string`  | Agência na qual o imóvel foi registrado                       |
+| `origin`                  | `number`  | Fetch de origem do imóvel                                     |
+| `title`                   | `string`  | Título do anúncio                                             |
+| `notes`                   | `string`  | Notas referentes ao imóvel                                    |
+| `description`             | `string`  | Descrição do anúncio                                          |
+| `listing_description`     | `string`  | Descrição do imóvel                                           |
+| `condominium_description` | `string`  | Descrição do condomínio                                       |
+| `neighborhood_description`| `string`  | Descrição do bairro                                           |
+| `listing_type`            | `string`  | Tipo de imóvel: Casa e/ou Apartamento                         |
+| `purpose_type`            | `string`  | Propósito do imóvel: Comercial/Residencial/Ambos              |
+| `transaction_type`        | `string`  | Tipo de negociação: Aluguel/Venda/Ambos                       |
+| `floor`                   | `number`  | Andar do imóvel                                               |
+| `bedrooms`                | `number`  | Número de quartos                                             |
+| `bathrooms`               | `number`  | Número de banheiros                                           |
+| `number_of_ensuites`      | `number`  | Número de suítes                                              |
+| `parking_spots`           | `number`  | Número de vagas de garagem                                    |
+| `covered_parking_spots`   | `number`  | Número de vagas de garagem cobertas                           |
+| `parking_spots_number`    | `array`   | Número das vagas de garagem                                   |
+| `garage_type`             | `string`  | Tipo de garagem                                               |
+| `hobbybox`                | `boolean` | Possui hobbybox ou não                                        |
+| `hobbybox_number`         | `string`  | Número do hobbybox                                            |
+| `living_area`             | `number`  | Área útil                                                     |
+| `total_area`              | `number`  | Área total                                                    |
+| `furnished`               | `string`  | Mobília do imóvel: Mobiliado/Semi-mobiliado/Não mobiliado     |
+| `pets`                    | `boolean` | Aceita animais de estimação ou não                            |
+| `penthouse`               | `boolean` | É cobertura ou não                                            |
+| `solar_orientation`       | `string`  | Orientação solar: Manhã/Tarde/Ambos/Desconhecido              |
+| `building_position`       | `string`  | Posição em relação à fachada do edifício: Frente/Lado/Fundos  |
+| `building_name`           | `string`  | Nome do edifício                                              |
+| `concierge_type`          | `string`  | Tipo de portaria                                              |
+| `key_type`                | `string`  | Tipo de chave                                                 |
+| `address`                 | `string`  | Endereço                                                      |
+| `extra_address_info`      | `string`  | Complemento                                                   |
+| `street_number`           | `string`  | Número da rua                                                 |
+| `coordinates`             | `string`  | Coordenadas geográficas                                       |
+| `postal_code`             | `string`  | CEP                                                           |
+| `neighborhood`            | `string`  | Bairro                                                        |
+| `city`                    | `string`  | Cidade                                                        |
+| `neighborhood_slug`       | `string`  | Slug name do bairro                                           |
+| `city_slug`               | `string`  | Slug name da cidade                                           |
+| `state`                   | `string`  | UF do imóvel                                                  |
+| `rent_price`              | `number`  | Valor do aluguel do imóvel                                    |  
+| `sale_price`              | `number`  | Valor de venda do imóvel                                      |
+| `condominium_fee`         | `number`  | Taxa de condomínio                                            |
+| `taxes_type`              | `string`  | Tipo de pagamento do IPTU: Anual/Mensal                       |
+| `taxes`                   | `number`  | Valor do IPTU                                                 |
+| `insurance`               | `number`  | Valor do seguro do imóvel                                     |
+| `garbage_fee`             | `number`  | Taxa de coleta de lixo                                        |
+| `available`               | `boolean` | Imóvel disponível ou não                                      |
+| `invalid`                 | `boolean` | Informações do imóvel inválidas ou não                        |
+
+
 ### Listar imóveis
 
 Esse endpoint é utilizado para obter a lista de imóveis disponíves da imobiliária.
